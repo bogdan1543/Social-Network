@@ -3,15 +3,17 @@ package service;
 import domain.Friendship;
 import domain.User;
 import domain.validator.ValidationException;
+import repository.FriendshipDBRepository;
 import repository.InMemoryRepository;
+import repository.UserDBRepository;
 
 import java.util.*;
 
 public class SocialNetwork {
-    private InMemoryRepository<Integer, User> userRepository;
-    private InMemoryRepository<Integer, Friendship> friendshipRepository;
+    private final UserDBRepository userRepository;
+    private FriendshipDBRepository friendshipRepository;
 
-    public SocialNetwork(InMemoryRepository<Integer, User> userRepository, InMemoryRepository<Integer, Friendship> friendshipRepository) {
+    public SocialNetwork(UserDBRepository userRepository, FriendshipDBRepository friendshipRepository) {
         this.userRepository = userRepository;
         this.friendshipRepository = friendshipRepository;
     }

@@ -3,14 +3,15 @@ package domain.validator;
 import domain.Friendship;
 import domain.User;
 import repository.InMemoryRepository;
+import repository.UserDBRepository;
 
 import java.util.Optional;
 
 public class FriendshipValidator implements Validator<Friendship> {
 
-    private final InMemoryRepository<Integer, User> repo;
+    private final UserDBRepository repo;
 
-    public FriendshipValidator(InMemoryRepository<Integer, User> repo) {
+    public FriendshipValidator(UserDBRepository repo) {
         this.repo = repo;
     }
 

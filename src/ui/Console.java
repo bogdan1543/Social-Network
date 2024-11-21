@@ -119,7 +119,6 @@ public class Console {
         try {
             Integer id = Integer.parseInt(var);
             User user = socialNetwork.removeUser(id);
-            System.out.println("User: " + user.getId() + " " + user.getFirstName() + " " + user.getLastName() + " was removed.");
         } catch (IllegalArgumentException e) {
             System.out.println("ID must be a number! It can't contain letters or symbols! ");
         }

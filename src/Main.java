@@ -3,9 +3,7 @@ import domain.User;
 import domain.validator.FriendshipValidator;
 import domain.validator.UserValidator;
 import domain.validator.ValidationException;
-import repository.FriendshipFileRepository;
-import repository.InMemoryRepository;
-import repository.UserFileRepository;
+import repository.*;
 import service.SocialNetwork;
 import ui.Console;
 
@@ -14,8 +12,8 @@ public class Main {
         // Initialize repositories for Users and Friendships
 
 
-        UserFileRepository repoUser = new UserFileRepository("data/users", new UserValidator());
-        FriendshipFileRepository repoFriendship = new FriendshipFileRepository("data/friendships", new FriendshipValidator(repoUser));
+        UserDBRepository repoUser = new UserDBRepository(new UserValidator());
+        FriendshipDBRepository repoFriendship = new FriendshipDBRepository(new FriendshipValidator(repoUser));
 
         //InMemoryRepository<Integer, User> repoUser = new InMemoryRepository<>(new UserValidator());
         //InMemoryRepository<Integer, Friendship> repoFriendship = new InMemoryRepository<>(new FriendshipValidator(repoUser));
